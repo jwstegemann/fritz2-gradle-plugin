@@ -1,0 +1,35 @@
+plugins {
+    `kotlin-dsl`
+    `maven-publish`
+    id("com.gradle.plugin-publish") version "0.11.0"
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72")
+}
+
+group = "io.fritz2"
+version = "0.5"
+java.targetCompatibility = JavaVersion.VERSION_1_8
+
+pluginBundle {
+    website = "https://www.fritz2.dev"
+    vcsUrl = "https://github.com/jwstegemann/fritz2-gradle-plugin.git"
+    tags = listOf("kotlin", "fritz2")
+}
+
+gradlePlugin
+        .plugins
+        // replace the right part of the comparison
+        // with your package and precompiled script filename
+        .find { it.name == "io.fritz2.fritz2-gradle" }!!
+        .apply {
+            id = "io.fritz2.fritz2-gradle"
+            version = project.version
+            displayName = "A plugin that sets up your kotlin multiplatform-project for fritz2"
+            description = "A plugin that sets up code-generation for lenses"
+        }
