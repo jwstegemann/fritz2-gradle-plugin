@@ -25,8 +25,9 @@ kotlin {
                     configurations.get("kapt").dependencies.add(compileOnly("io.fritz2:lenses-annotation-processor:$fritz_version"))
 
                     tasks.getByName("compileKotlinJs").dependsOn("kaptKotlinJvm")
-                    tasks.getByName("jvmMainClasses").dependsOn("metadataMainClasses")
-                    tasks.getByName("jsMainClasses").dependsOn("metadataMainClasses")
+                    tasks.getByName("compileKotlinMetadata").dependsOn("kaptKotlinJvm")
+                    //tasks.getByName("jvmMainClasses").dependsOn("metadataMainClasses")
+                    //tasks.getByName("jsMainClasses").dependsOn("metadataMainClasses")
 
                     kotlin.srcDir("$buildDir/generated/source/kaptKotlin/main")
                 }
