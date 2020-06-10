@@ -1,4 +1,4 @@
-package io.fritz2
+package dev.fritz2
 
 val fritz_version = "0.5"
 
@@ -20,9 +20,9 @@ kotlin {
             val commonMain by getting {
                 dependencies {
                     implementation(kotlin("stdlib"))
-                    implementation("io.fritz2:core:$fritz_version")
+                    implementation("dev.fritz2:core:$fritz_version")
 
-                    configurations.get("kapt").dependencies.add(compileOnly("io.fritz2:lenses-annotation-processor:$fritz_version"))
+                    configurations.get("kapt").dependencies.add(compileOnly("dev.fritz2:lenses-annotation-processor:$fritz_version"))
 
                     tasks.getByName("compileKotlinJs").dependsOn("kaptKotlinJvm")
                     tasks.getByName("compileKotlinMetadata").dependsOn("kaptKotlinJvm")

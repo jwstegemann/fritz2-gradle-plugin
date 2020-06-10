@@ -12,7 +12,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72")
 }
 
-group = "io.fritz2"
+group = "dev.fritz2"
 version = "0.5"
 java.targetCompatibility = JavaVersion.VERSION_1_8
 
@@ -24,11 +24,9 @@ pluginBundle {
 
 gradlePlugin
         .plugins
-        // replace the right part of the comparison
-        // with your package and precompiled script filename
-        .find { it.name == "io.fritz2.fritz2-gradle" }!!
+        .find { it.name == "dev.fritz2.fritz2-gradle" }!!
         .apply {
-            id = "io.fritz2.fritz2-gradle"
+            id = "dev.fritz2.fritz2-gradle"
             version = project.version
             displayName = "A plugin that sets up your kotlin multiplatform-project for fritz2"
             description = "A plugin that sets up code-generation for lenses"
