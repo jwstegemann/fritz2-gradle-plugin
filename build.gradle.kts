@@ -38,7 +38,7 @@ publishing {
             name = "bintray"
             val bintrayUsername = "jwstegemann"
             val bintrayRepoName = "fritz2"
-            val bintrayPackageName = "lenses-annotation-processor"
+            val bintrayPackageName = "fritz2-gradle-plugin"
             setUrl(
                     "https://api.bintray.com/maven/" +
                             "$bintrayUsername/$bintrayRepoName/$bintrayPackageName/;" +
