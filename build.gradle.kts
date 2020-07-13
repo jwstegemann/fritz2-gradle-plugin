@@ -13,7 +13,7 @@ dependencies {
 }
 
 group = "dev.fritz2"
-version = "0.5"
+version = "0.6"
 java.targetCompatibility = JavaVersion.VERSION_1_8
 
 pluginBundle {
@@ -43,7 +43,7 @@ publishing {
                     "https://api.bintray.com/maven/" +
                             "$bintrayUsername/$bintrayRepoName/$bintrayPackageName/;" +
                             "publish=0;" + // Never auto-publish to allow override.
-                            "override=0"
+                            "override=1"
             )
             credentials {
                 username = "jwstegemann"
