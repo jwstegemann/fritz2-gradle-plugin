@@ -31,3 +31,24 @@ gradlePlugin
             displayName = "A plugin that sets up your kotlin multiplatform-project for fritz2"
             description = "A plugin that sets up code-generation for lenses"
         }
+
+publishing {
+    repositories {
+        maven {
+            name = "bintray"
+            val bintrayUsername = "jwstegemann"
+            val bintrayRepoName = "fritz2"
+            val bintrayPackageName = "fritz2-gradle-plugin"
+            setUrl(
+                    "https://api.bintray.com/maven/" +
+                            "$bintrayUsername/$bintrayRepoName/$bintrayPackageName/;" +
+                            "publish=0;" + // Never auto-publish to allow override.
+                            "override=0"
+            )
+            credentials {
+                username = "jwstegemann"
+                password = System.getenv("BINTRAY_API_KEY")
+            }
+        }
+    }
+}
