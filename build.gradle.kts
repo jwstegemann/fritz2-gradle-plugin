@@ -1,7 +1,7 @@
 plugins {
     `kotlin-dsl`
     `maven-publish`
-    id("com.gradle.plugin-publish") version "0.11.0"
+    id("com.gradle.plugin-publish") version "0.12.0"
 }
 
 repositories {
@@ -9,11 +9,11 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.0")
 }
 
 group = "dev.fritz2"
-version = "0.7"
+version = "0.7.1"
 java.targetCompatibility = JavaVersion.VERSION_1_8
 
 pluginBundle {
