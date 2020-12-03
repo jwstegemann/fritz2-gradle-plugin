@@ -1,6 +1,6 @@
 package dev.fritz2
 
-val fritz_version = "0.7"
+val fritz_version = "0.8"
 
 plugins {
     id("org.jetbrains.kotlin.multiplatform")
