@@ -13,7 +13,7 @@ dependencies {
 }
 
 group = "dev.fritz2"
-version = "0.7.1"
+version = "0.8"
 java.targetCompatibility = JavaVersion.VERSION_1_8
 
 pluginBundle {
