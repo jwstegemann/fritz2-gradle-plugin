@@ -1,7 +1,3 @@
-package dev.fritz2
-
-val fritz_version = "0.8"
-
 plugins {
     id("org.jetbrains.kotlin.multiplatform")
     id("org.jetbrains.kotlin.kapt")
@@ -9,6 +5,7 @@ plugins {
 
 repositories {
     jcenter()
+    mavenCentral()
 }
 
 kotlin {
@@ -16,15 +13,19 @@ kotlin {
     js().browser()
 
     sourceSets {
+
+        val fritzVersion = "0.8"
+
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib"))
-                implementation("dev.fritz2:core:$fritz_version")
+                implementation("dev.fritz2:core:$fritzVersion")
 
-                configurations.get("kapt").dependencies.add(compileOnly("dev.fritz2:lenses-annotation-processor:$fritz_version"))
+                configurations.get("kapt").dependencies.add(compileOnly("dev.fritz2:lenses-annotation-processor:$fritzVersion"))
             }
             tasks.getByName("compileKotlinJs").dependsOn("kaptKotlinJvm")
             tasks.getByName("compileKotlinMetadata").dependsOn("kaptKotlinJvm")
+            tasks.getByName("compileCommonMainKotlinMetadata").dependsOn("kaptKotlinJvm")
             //tasks.getByName("jvmMainClasses").dependsOn("metadataMainClasses")
             //tasks.getByName("jsMainClasses").dependsOn("metadataMainClasses")
 

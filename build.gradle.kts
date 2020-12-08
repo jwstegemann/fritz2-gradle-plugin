@@ -24,8 +24,8 @@ pluginBundle {
 
 gradlePlugin
         .plugins
-        .find { it.name == "dev.fritz2.fritz2-gradle" }!!
-        .apply {
+        .find { it.name == "dev.fritz2.fritz2-gradle" }
+        ?.apply {
             id = "dev.fritz2.fritz2-gradle"
             version = project.version
             displayName = "A plugin that sets up your kotlin multiplatform-project for fritz2"
