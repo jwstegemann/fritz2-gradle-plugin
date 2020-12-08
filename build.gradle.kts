@@ -9,12 +9,11 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.0")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
 }
 
 group = "dev.fritz2"
 version = "0.8"
-java.targetCompatibility = JavaVersion.VERSION_1_8
 
 pluginBundle {
     website = "https://www.fritz2.dev"
