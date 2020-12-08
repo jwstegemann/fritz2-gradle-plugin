@@ -5,7 +5,7 @@ plugins {
 
 repositories {
     jcenter()
-    mavenCentral()
+    maven { url = uri("https://dl.bintray.com/jwstegemann/fritz2") }
 }
 
 kotlin {
