@@ -1,6 +1,6 @@
 package dev.fritz2
 
-val fritz_version = "0.8"
+val fritz_version = "0.9-SNAPSHOT"
 
 plugins {
     id("org.jetbrains.kotlin.multiplatform")
@@ -8,6 +8,7 @@ plugins {
 }
 
 repositories {
+    mavenCentral()
     jcenter()
     maven("https://dl.bintray.com/jwstegemann/fritz2")
 }
@@ -19,9 +20,6 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(kotlin("stdlib"))
-                implementation("dev.fritz2:core:$fritz_version")
-
                 configurations.get("kapt").dependencies.add(compileOnly("dev.fritz2:lenses-annotation-processor:$fritz_version"))
             }
             tasks.getByName("compileKotlinJs").dependsOn("kaptKotlinJvm")
