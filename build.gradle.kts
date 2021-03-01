@@ -1,15 +1,16 @@
 plugins {
     `kotlin-dsl`
     `maven-publish`
-    id("com.gradle.plugin-publish") version "0.12.0"
+    id("com.gradle.plugin-publish") version "0.13.0"
 }
 
 repositories {
+    mavenCentral()
     jcenter()
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
+    implementation(kotlin("gradle-plugin", "1.4.30"))
 }
 
 group = "dev.fritz2"
