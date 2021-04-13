@@ -8,8 +8,23 @@ plugins {
 }
 
 afterEvaluate {
-    tasks.getByName("compileKotlinJs").dependsOn("kaptKotlinJvm")
-    tasks.getByName("compileKotlinMetadata").dependsOn("kaptKotlinJvm")
+    //    tasks.getByName("compileKotlinJs").dependsOn("kaptKotlinJvm")
+    //    tasks.getByName("compileKotlinMetadata").dependsOn("kaptKotlinJvm")
+    the<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension>().apply {
+        targets.all {
+            compilations.all {
+                if (platformType == org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType.js) {
+                    compilations.all {
+                        if (name == org.jetbrains.kotlin.gradle.plugin.KotlinCompilation.Companion.MAIN_COMPILATION_NAME) {
+                            compileKotlinTaskProvider {
+                                dependsOn("kaptKotlinJvm")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 kotlin {
