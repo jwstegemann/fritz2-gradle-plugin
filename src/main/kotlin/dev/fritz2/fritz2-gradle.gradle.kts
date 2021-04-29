@@ -1,7 +1,5 @@
 package dev.fritz2
 
-import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
-
 val fritz_version = "0.10"
 
 plugins {
