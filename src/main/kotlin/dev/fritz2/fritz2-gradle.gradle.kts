@@ -37,6 +37,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 configurations["kapt"]?.dependencies?.add(compileOnly("dev.fritz2:lenses-annotation-processor:$fritz_version"))
+                implementation("dev.fritz2:core:$fritz_version")
             }
             kotlin.srcDir("$buildDir/generated/source/kaptKotlin/main")
         }
