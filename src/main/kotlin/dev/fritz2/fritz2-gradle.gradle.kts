@@ -1,6 +1,8 @@
 package dev.fritz2
 
-val fritz_version = "0.9.1"
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
+
+val fritz_version = "0.10"
 
 plugins {
     kotlin("multiplatform")
@@ -13,7 +15,8 @@ afterEvaluate {
     the<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension>().apply {
         targets.all {
             compilations.all {
-                if (platformType == org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType.js) {
+                if (platformType == org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType.js ||
+                        platformType == org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType.common) {
                     compilations.all {
                         if (name == org.jetbrains.kotlin.gradle.plugin.KotlinCompilation.Companion.MAIN_COMPILATION_NAME) {
                             compileKotlinTaskProvider {
@@ -28,7 +31,7 @@ afterEvaluate {
 }
 
 kotlin {
-    jvm() // otherwise: Configuration with name 'kapt' not found error
+    KotlinPlatformType.jvm() // otherwise: Configuration with name 'kapt' not found error
 
     sourceSets {
         val commonMain by getting {
