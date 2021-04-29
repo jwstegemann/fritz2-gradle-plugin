@@ -13,7 +13,8 @@ afterEvaluate {
     the<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension>().apply {
         targets.all {
             compilations.all {
-                if (platformType == org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType.js) {
+                if (platformType == org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType.js ||
+                        platformType == org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType.common) {
                     compilations.all {
                         if (name == org.jetbrains.kotlin.gradle.plugin.KotlinCompilation.Companion.MAIN_COMPILATION_NAME) {
                             compileKotlinTaskProvider {
@@ -34,6 +35,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 configurations["kapt"]?.dependencies?.add(compileOnly("dev.fritz2:lenses-annotation-processor:$fritz_version"))
+                implementation("dev.fritz2:core:$fritz_version")
             }
             kotlin.srcDir("$buildDir/generated/source/kaptKotlin/main")
         }
