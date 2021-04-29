@@ -31,7 +31,7 @@ afterEvaluate {
 }
 
 kotlin {
-    KotlinPlatformType.jvm() // otherwise: Configuration with name 'kapt' not found error
+    jvm() // otherwise: Configuration with name 'kapt' not found error
 
     sourceSets {
         val commonMain by getting {
