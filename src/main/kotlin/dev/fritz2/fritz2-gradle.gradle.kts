@@ -1,6 +1,6 @@
 package dev.fritz2
 
-val fritz_version = "0.10"
+val fritz_version = "0.11"
 
 plugins {
     kotlin("multiplatform")

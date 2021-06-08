@@ -1,7 +1,7 @@
 plugins {
     `kotlin-dsl`
     `maven-publish`
-    id("com.gradle.plugin-publish") version "0.13.0"
+    id("com.gradle.plugin-publish") version "0.15.0"
 }
 
 repositories {
@@ -10,11 +10,11 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("gradle-plugin", "1.4.30"))
+    implementation(kotlin("gradle-plugin", "1.5.10"))
 }
 
 group = "dev.fritz2"
-version = "0.10"
+version = "0.11"
 
 pluginBundle {
     website = "https://www.fritz2.dev"
