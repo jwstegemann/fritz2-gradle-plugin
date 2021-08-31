@@ -10,11 +10,11 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("gradle-plugin", "1.5.10"))
+    implementation(kotlin("gradle-plugin", "1.5.30"))
 }
 
 group = "dev.fritz2"
-version = "0.11"
+version = "0.12"
 
 pluginBundle {
     website = "https://www.fritz2.dev"
