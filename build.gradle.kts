@@ -14,7 +14,7 @@ dependencies {
 }
 
 group = "dev.fritz2"
-version = "0.12"
+version = "0.13"
 
 pluginBundle {
     website = "https://www.fritz2.dev"
